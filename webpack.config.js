@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'build.js'
+    filename: 'bundle.js'
   },
   resolve: {
     extensions: ['.js', '.jsx']
@@ -24,6 +24,19 @@ module.exports = {
         use: {
           loader: 'html-loader'
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1
+            }
+          },
+          'postcss-loader'
+        ]
       }
     ]
   },
@@ -32,5 +45,10 @@ module.exports = {
       template: './public/index.html',
       filename: './index.html'
     })
-  ]
+  ],
+  devServer: {
+    watchContentBase: true,
+    contentBase: path.resolve(__dirname, 'dist'),
+    open: true
+  }
 }
