@@ -1,32 +1,48 @@
 import React from 'react'
+import { useForm } from 'react-hook-form'
 
 const LoginForm = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit
+  } = useForm()
+  const onSubmit = (data) => alert(JSON.stringify(data))
+
   return (
-    <div className="p-10 bg-gray-300">
-      <div className="bg-white">
-        <form>
-          <h1 className="mt-12 text-xl font-bold leading-tight md:text-2xl">
-            Log in to your acoount
-          </h1>
-          <div className="mb-4">
-            <label to="email" className="block mb-2 text-sm text-indigo-500">
-              Email address
-            </label>
-            <input
-              type="text"
-              placeholder="Enter you email"
-              className="input"
-            />
-            <button
-              type="submit"
-              className="block w-full px-3 py-2 text-sm font-semibold text-center text-white bg-blue-700 hover:bg-blue-600"
-            >
-              Continuar
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
+    <>
+      <form className="mb-4" onSubmit={handleSubmit(onSubmit)}>
+        <div className={`app--form-group ${errors.email && 'app--form-error'}`}>
+          <label htmlFor="email" className="app--form-label">
+            Correo electrónico <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            id="email"
+            placeholder="Tu correo electrónico"
+            className="app--form-input"
+            {...register('email', { required: true })}
+          />
+        </div>
+        <div
+          className={`app--form-group ${errors.password && 'app--form-error'}`}
+        >
+          <label htmlFor="password" className="app--form-label">
+            Contraseña <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="password"
+            id="password"
+            className="app--form-input"
+            placeholder="Tu contraseña"
+            {...register('password', { required: true })}
+          />
+        </div>
+        <button type="submit" className="app--button">
+          Continuar
+        </button>
+      </form>
+    </>
   )
 }
 

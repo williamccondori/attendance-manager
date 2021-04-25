@@ -26,7 +26,10 @@ module.exports = {
         endOfLine: 'auto',
         trailingComma: 'none'
       }
-    ]
+    ],
+    'react/jsx-pascal-case': 'error',
+    'react/button-has-type': 'error',
+    'react/self-closing-comp': 'error'
   },
   settings: {
     react: {

@@ -1,8 +1,47 @@
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 
-.input {
-    @apply px-3 py-2 text-sm transition duration-300 ease-in-out border-2 rounded-sm focus:outline-none hover:bg-gray-100 focus:border-blue-600;
+/*=============================================
+=            application styles            =
+=============================================*/
+
+/* buttons */
+
+.app--button {
+  @apply block w-full px-3 py-2 text-sm font-semibold text-center text-white transition-colors duration-300 ease-in-out bg-teal-400 focus:outline-none hover:bg-teal-500;
 }
 
-@tailwind utilities;
+/*----------  card styles  ----------*/
+
+/* ANCHOR - card styles */
+
+.app--card {
+  @apply rounded-sm p-10 bg-white shadow-md;
+}
+
+/*----------  form styles  ----------*/
+
+/* ANCHOR - form styles */
+
+.app--form-group {
+  @apply mb-2;
+}
+
+.app--form-label {
+  @apply w-full font-semibold text-sm;
+}
+
+.app--form-input {
+  @apply w-full px-3 py-2 text-sm bg-gray-100 border border-gray-300 rounded-sm  focus:outline-none focus:border-celeste-400;
+}
+
+.app--form-error label {
+  @apply text-red-500;
+}
+
+.app--form-error input {
+  @apply bg-red-50 border-red-500 focus:border-red-500 placeholder-red-400;
+}
+
+/*=====  End of application styles  ======*/

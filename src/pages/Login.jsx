@@ -1,10 +1,12 @@
 import React from 'react'
-import LoginForm from '../components/login/LoginForm'
+import LoginCard from '../components/login/LoginCard'
 
 const Login = () => {
   return (
-    <div>
-      <LoginForm />
+    <div className="flex justify-center min-h-screen bg-gray-100">
+      <div className="w-full mt-10 sm:max-w-sm">
+        <LoginCard />
+      </div>
     </div>
   )
 }
